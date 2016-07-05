@@ -52,8 +52,8 @@ class WN_User_Public {
             }
             ?>
             <script>
-                var is_available = '<?php echo $is_available; ?>';
-                var is_discount = '<?php echo $is_discount; ?>';
+                var is_available = '<?php echo isset( $is_available ) ? $is_available:''; ?>';
+                var is_discount = '<?php echo isset( $is_discount ) ? $is_discount : ''; ?>';
             </script>
         </div>
     <?php

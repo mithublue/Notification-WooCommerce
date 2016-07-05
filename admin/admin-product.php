@@ -30,7 +30,6 @@ class WCN_Admin_Product{
 
                 // if admin allow sending notification by checking the checkbox
                 if( $prod->is_in_stock() ) {
-
                     if( isset( $_POST['wcn_send_notification']['availablity']['email'] ) ) {
 
                         $result_ids = wcn_functions::send_notification_to_customers(
@@ -39,7 +38,7 @@ class WCN_Admin_Product{
                                 'notification_type' => 'email',
                                 'data' => $product_notification,
                                 'product_title' => get_the_title( $post_id ),
-                                'prdouct_link' => get_permalink( $post_id )
+                              'product_link' => get_permalink( $post_id )
                             )
                         );
                         $successful_row_id = array_merge( $successful_row_id, $result_ids );
