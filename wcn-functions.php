@@ -166,7 +166,7 @@ ORDER BY $notification_table.ID;" );
 
                 //send the mail now
                 if( !empty( $email_to ) ) {
-                    if( 1 /*wp_mail( trim( $email_to, ',' ), $subject, $message, $headers )*/ ) {
+                    if( wp_mail( trim( $email_to, ',' ), $subject, $message, $headers ) ) {
                         return $sent_email_row_id;
                     }
                 }
