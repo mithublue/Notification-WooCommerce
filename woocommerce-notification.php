@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Notification - WooCommerce (working)
+Plugin Name: Notification - WooCommerce by Cybercraft Technologies
 Plugin URI:
 Description:
 Version: 0.1
