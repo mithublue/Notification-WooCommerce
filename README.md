@@ -31,7 +31,7 @@ Coming Soon ! :)
 # Installation #
 
 After having installed the plugin:
-1. Upload `shortcode-maker` to the `/wp-content/plugins/` directory
+1. Upload `notification-woocommerce` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 After Installing the plugin , go to 'WC Notification Settings' in wp-admin to set the options, what you want the notification system be enabled for.
