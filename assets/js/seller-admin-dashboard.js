@@ -17,7 +17,7 @@
         var seller_admin_dashboard = {
 
             init : function() {
-                $(document).on( 'click', '.user-notification-notice a', function() { //.notice.is-dismissible
+                $(document).on( 'click', 'a.wcn_admin_noti_prod_link', function() {
                     seller_admin_dashboard.remove_notification($(this));
                 });
             },
@@ -27,23 +27,14 @@
                 $.post(
                     ajaxurl,
                     {
-                        action : 'wcn_remove_notification'
+                        action : 'wcn_remove_admin_notification',
+                        product_id : obj.data('id')
                     },
                     function(data){
-                        if( data != 'false' ) {
-                            var admin_notification = JSON.parse( data );
-                            $('.user-notification-notice').remove();
-                            if ( obj.data('href') ) {
-                                window.location = obj.data('href');
-                            }
-                        }
-
-
-                        console.log(data);
                     }
-                )
+                );
             }
-        }
+        };
 
         seller_admin_dashboard.init();
 
