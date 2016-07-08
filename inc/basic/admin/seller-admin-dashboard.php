@@ -16,8 +16,8 @@ class wcn_seller_admin_dashboard_basic{
             $admin_notification = WCN_Admin_notification_basic::get_notification( 'user_activity' );
             ?>
             <!-- app -->
-            <div id="user-notification-app" class="notice">
-                <div v-if="admin_notification">
+            <div id="user-notification-app">
+                <div v-if="admin_noti_length > 0">
                     <div class="notice user-notification-notice notice-success is-dismissible">
                         <p><?php _e( 'You have some notifications waiting ! <a href="javascript:" @click="showModal = true">Take a look !</a>', 'wcn' ); ?></p>
                     </div>
@@ -26,6 +26,7 @@ class wcn_seller_admin_dashboard_basic{
             </div>
             <script>
                 var admin_notification = JSON.parse('<?php echo html_entity_decode(json_encode($admin_notification)); ?>');
+                var admin_noti_length = Object.keys(admin_notification).length;
             </script>
         <?php
         }

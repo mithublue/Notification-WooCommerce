@@ -4,15 +4,16 @@
         Vue.component('user-notification-modal', {
             template: '#user-notification-modal-template',
             props: [ 'show', 'admin_notification']
-        })
+        });
 
         var seller_notice = new Vue({
             el: '#user-notification-app',
             data: {
                 showModal: false,
-                admin_notification : admin_notification
+                admin_notification : admin_notification,
+                admin_noti_length : admin_noti_length
             }
-        })
+        });
 
         var seller_admin_dashboard = {
 
