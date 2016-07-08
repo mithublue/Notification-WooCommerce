@@ -155,17 +155,7 @@ class WN_User_Public {
             }
         }
 
-        //set_notification
-        WCN_Admin_notification::set_notification(
-            'user_notification',
-            array(
-                'user_notification_type' => $notification_for,
-                'result' => $responce['result'],
-                'action' => $action_type,
-                'email' => $user_email,
-                'notification_post_id' => $product_id
-            )
-        );
+        do_action( 'wcn_set_admin_notification',  $product_id, get_current_user_id(), $action_type, $responce );
 
         echo json_encode( $responce );
         exit;

@@ -43,12 +43,7 @@ define( 'WCN_ROOT', plugins_url( '', __FILE__ ) );
 class WCN_Notification {
 
     function __construct() {
-
-        add_action('admin_head',function(){
-            require_once dirname(__FILE__).'/templates.php';
-        });
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts_styles' ) );
-        register_activation_hook(__FILE__, array( 'WCN_Admin_notification' , 'initial_setup' ) );
         register_activation_hook(__FILE__, array( $this , 'initial_setup' ) );
         $this->includes();
     }
@@ -94,12 +89,10 @@ class WCN_Notification {
 
         require_once dirname(__FILE__).'/wcn-data.php';
         require_once dirname(__FILE__).'/wcn-functions.php';
-        require_once dirname(__FILE__).'/admin-notification.php';
         require_once dirname(__FILE__).'/user-public.php';
 
         if( is_admin() ) {
             require_once dirname(__FILE__).'/admin/admin-product.php';
-            require_once dirname(__FILE__).'/admin/seller-admin-dashboard.php';
             require_once dirname(__FILE__).'/admin/admin-wcn-settings.php';
         }
     }

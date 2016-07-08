@@ -13,15 +13,9 @@
                 <div class="modal-body">
                     <slot name="body">
                         <table>
-                            <?php
-                            //foreach( $admin_notification['notification_strings'] as $key => $each_notification ) {
-                                ?>
-                                <tr v-for="( key, each_notification ) in admin_notification.notification_strings">
-                                    <td>{{ each_notification }}</td>
-                                </tr>
-                            <?php
-                            //}
-                            ?>
+                            <tr v-for="( product_id, noti_object ) in admin_notification">
+                                <td> <?php _e( 'New notification added for product ' );?> <a data-id="{{ product_id }}" class="wcn_admin_noti_prod_link"  href="{{ noti_object.edit_link }}">{{ noti_object.product_title }}</a> </td>
+                            </tr>
                         </table>
                     </slot>
                 </div>
