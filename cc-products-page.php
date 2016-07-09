@@ -60,7 +60,7 @@ class CC_Product_Page {
 
             }
             .cc-product-holder .btn-visit{
-                padding: 3px 10px;
+                padding: 7px 10px;
                 background: #05b93a;
                 border-radius: 3px;
                 color: #ffffff;
