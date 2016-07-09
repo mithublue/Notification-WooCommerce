@@ -28,7 +28,7 @@ class CC_Product_Page {
                     <img src="<?php echo isset( $plugin->banners['low'] ) ? $plugin->banners['low'] : '' ?>" width="100%" alt="Banner"/>
                     <h3><a href="https://wordpress.org/plugins/<?php echo $plugin->slug; ?>" target="_blank"><?php echo $plugin->name ?></a></h3>
                     <p><?php echo $plugin->short_description; ?></p>
-                    <a class="btn btn-visit" href="href="https://wordpress.org/plugins/<?php echo $plugin->slug; ?>" target="_blank"">Visit plugin page</a>
+                    <a class="btn btn-visit" href="https://wordpress.org/plugins/<?php echo $plugin->slug; ?>" target="_blank"">Visit plugin page</a>
                 </div>
                 <?php
             }
