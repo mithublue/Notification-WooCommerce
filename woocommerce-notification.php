@@ -94,6 +94,7 @@ class WCN_Notification {
         if( is_admin() ) {
             require_once dirname(__FILE__).'/admin/admin-product.php';
             require_once dirname(__FILE__).'/admin/admin-wcn-settings.php';
+            require_once dirname(__FILE__).'/cc-products-page.php';
         }
     }
 
