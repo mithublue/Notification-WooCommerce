@@ -24,7 +24,7 @@ class WN_User_Public {
         <div id="wn-product-notification-app">
             <?php
             global $product;
-            $options = get_option('plugin_options');
+            $options = get_option('wcn_settings');
 
             if( !$product->is_in_stock() && isset( $options['availablity_notification'] ) && $options['availablity_notification'] == 'true' ) {
                 $is_available = $this->has_user_checked_in( get_current_user_id(), $product->id, 'availablity', 'email' );
