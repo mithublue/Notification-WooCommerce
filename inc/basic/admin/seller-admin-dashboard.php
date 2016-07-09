@@ -18,7 +18,7 @@ class wcn_seller_admin_dashboard_basic{
             <!-- app -->
             <div id="user-notification-app">
                 <div v-if="admin_noti_length > 0">
-                    <div class="notice user-notification-notice notice-success is-dismissible">
+                    <div class="notice user-notification-notice notice-warning is-dismissible">
                         <p><?php _e( 'You have some notifications waiting ! <a href="javascript:" @click="showModal = true">Take a look !</a>', 'wcn' ); ?></p>
                     </div>
                     <user-notification-modal :show.sync="showModal" :admin_notification="admin_notification"></user-notification-modal>

@@ -10,6 +10,7 @@ class WCN_Admin_Product{
 
     public function __construct(){
         add_action('save_post', array( $this, 'save_product_data' ) );
+        add_action( 'admin_notices', array( $this, 'notification_sent_notice' ) );
     }
 
 
@@ -19,6 +20,7 @@ class WCN_Admin_Product{
         if( !current_user_can( 'edit_post' ) ) return;
 
         do_action( 'wcn_save_product_top' );
+
         $_POST = apply_filters( 'wcn_save_product_top', $_POST );
         $prod = new WC_Product( $post_id );
         $successful_row_id = array();
@@ -76,9 +78,32 @@ class WCN_Admin_Product{
                             )
                         )
                     );
+
+                    //flag to check if mail has sent
+                    set_transient( 'wcn_is_notification_sent', 'true' );
                 }
             }
 
+    }
+
+
+    function notification_sent_notice() {
+        global $post;
+
+        if( get_post_type( $post->ID ) != 'product' ) return;
+
+        if( !in_array( 'manage_woocommerce', get_currentuserinfo()->roles ) && !in_array( 'administrator', get_currentuserinfo()->roles ) ) return;
+
+        $is_noti_sent = get_transient( 'wcn_is_notification_sent' );
+
+        if ( $is_noti_sent != 'true' ) return;
+
+        ?>
+        <div class="notice notice-success is-dismissible">
+            <p><?php _e( 'Notification sent successfully !', 'wcn' ); ?></p>
+        </div>
+    <?php
+        delete_transient( 'wcn_is_notification_sent' );
     }
 
 
