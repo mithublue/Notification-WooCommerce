@@ -14,8 +14,10 @@ product availablity and/or discount. Customers will be notified when the product
 
 
 = Features:  =
+
 Customer will be able to set notification 
-*  for any product if the product is out of stock, so that as soon as the product is available, they will be notified via mail.
+
+*  for any product. If the product is out of stock, so that as soon as the product is available, they will be notified via mail.
 * for discount of any product , so that as soon as the product is sold in discounted/sale price, they will be notified.
 
 = Notification WooCommerce - Premium Features =
@@ -34,6 +36,9 @@ After having installed the plugin:
 After Installing the plugin , go to 'WC Notification Settings' in wp-admin to set the options, what you want the notification system be enabled for.
 
 == Screenshots ==
+
+1. screenshot-1
+2. screenshot-2
 
 == Frequently Asked Questions ==
 
