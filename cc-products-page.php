@@ -1,5 +1,7 @@
 <?php
 
+if( !class_exists('CC_Product_Page') ) :
+
 class CC_Product_Page {
 
     public function __construct() {
@@ -75,3 +77,5 @@ class CC_Product_Page {
 }
 
 CC_Product_Page::init();
+
+endif;
