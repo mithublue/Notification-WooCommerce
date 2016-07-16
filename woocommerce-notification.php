@@ -3,7 +3,7 @@
 Plugin Name: Notification - WooCommerce by Cybercraft Technologies
 Plugin URI: http://cybercraftit.com/product/woocommerce-notification/
 Description: The easy and ultimate solution for notifiaction that lets your customer set notification for product availablity and/or discount. Customers will be notified when the product is available or sold in discounted price.
-Version: 0.2
+Version: 0.3
 Author: Mithu A Quayium
 Author URI: http://cybercraftit.com/
 License: GPL2
