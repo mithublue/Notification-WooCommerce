@@ -44,11 +44,17 @@ After Installing the plugin , go to 'WC Notification Settings' in wp-admin to se
 
 == Changelog ==
 
+= 0.3 =
+
+* [new] Extra settings in admin panel added
+* [new] Mail option can be added or not to the notification system
+* [new] Admin can now customize message to be sent via email
+
+= 0.2 =
+
+Plun info added
+
 = 0.1 =
 
 Plugin released
-
-= 0.2 = 
-
-Plun info added
 

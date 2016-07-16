@@ -28,22 +28,34 @@ class WCN_Admin_Product{
             //if admin allows to send notification (checking the send notification checkbox)
             if ( isset( $_POST['wcn_send_notification'] ) ) {
 
+                //get notifitcation settings options
+                $wcn_settings = get_option( 'wcn_settings');
+
                 $product_notification = wcn_functions::get_product_notification_data( $post_id, true );
 
                 // if admin allow sending notification by checking the checkbox
                 if( $prod->is_in_stock() ) {
+
+                    // if the checkbox in porudct admin panel is checked to let the notification to be sent
                     if( isset( $_POST['wcn_send_notification']['availablity']['email'] ) ) {
 
-                        $result_ids = wcn_functions::send_notification_to_customers(
-                            array(
-                                'notification_for' => 'availablity',
-                                'notification_type' => 'email',
-                                'data' => $product_notification,
-                                'product_title' => get_the_title( $post_id ),
-                              'product_link' => get_permalink( $post_id )
-                            )
-                        );
-                        $successful_row_id = array_merge( $successful_row_id, $result_ids );
+                        // if the mail notification is checked in options in settings panel
+                        if( isset( $wcn_settings['availablity']['notification_by']['mail']['enabled'] )
+                            && $wcn_settings['availablity']['notification_by']['mail']['enabled'] == 'true'  ) {
+
+                            $result_ids = wcn_functions::send_notification_to_customers(
+                                array(
+                                    'notification_for' => 'availablity',
+                                    'notification_type' => 'email',
+                                    'data' => $product_notification,
+                                    'product_title' => get_the_title( $post_id ),
+                                    'product_link' => get_permalink( $post_id )
+                                )
+                            );
+
+                            $successful_row_id = array_merge( $successful_row_id, $result_ids );
+                        }
+
                     }
                 }
 
@@ -51,16 +63,21 @@ class WCN_Admin_Product{
 
                     if( isset( $_POST['wcn_send_notification']['discount']['email'] ) ) {
 
-                        $result_ids = wcn_functions::send_notification_to_customers(
-                            array(
-                                'notification_for' => 'discount',
-                                'notification_type' => 'email',
-                                'data' => $product_notification,
-                                'product_title' => get_the_title( $post_id ),
-                                'prdouct_link' => get_permalink( $post_id )
-                            )
-                        );
-                        $successful_row_id = array_merge( $successful_row_id, $result_ids );
+                        if( isset( $wcn_settings['discount']['notification_by']['mail']['enabled'] )
+                            && $wcn_settings['discount']['notification_by']['mail']['enabled'] == 'true'  ) {
+
+                            $result_ids = wcn_functions::send_notification_to_customers(
+                                array(
+                                    'notification_for' => 'discount',
+                                    'notification_type' => 'email',
+                                    'data' => $product_notification,
+                                    'product_title' => get_the_title( $post_id ),
+                                    'prdouct_link' => get_permalink( $post_id )
+                                )
+                            );
+
+                            $successful_row_id = array_merge( $successful_row_id, $result_ids );
+                        }
                     }
                 }
 

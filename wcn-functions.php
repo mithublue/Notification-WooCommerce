@@ -132,13 +132,6 @@ ORDER BY $notification_table.ID;" );
 
         $wcn_settings = get_option( 'wcn_settings');
 
-        $msg_search = array(
-            '%product_link%'
-        );
-        $msg_replace = array(
-            'this is product link'
-        );
-
         $default = array(
             'notification_for' => '', // for availablity/discount
             'notification_type' => '', // type of notification. Email/sms etc
@@ -150,6 +143,9 @@ ORDER BY $notification_table.ID;" );
         $opt = array_merge( $default, $opt );
         extract( $opt );
 
+        $msg_search = array( '%product_link%' );
+        $msg_replace = array( $product_link );
+
         if( !is_array( $data ) ) return;
 
         switch( $notification_type ) {
@@ -158,7 +154,6 @@ ORDER BY $notification_table.ID;" );
                 $sent_email_row_id = array();
 
                 $email_to = '';
-
                 $headers = "From: " . strip_tags( get_option( 'admin_email' ) ) . "\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
