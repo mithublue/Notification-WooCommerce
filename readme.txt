@@ -1,7 +1,7 @@
 ﻿=== Notification WooCommerce ===
 Contributors: mithublue, cybercraftit
 Donate link: 
-Tags: ecommerce, commerce, notification, in stock, Out of stock, product, discount notification, discount, notification woocommerce, email notification, email, product availablity, product discount
+Tags: woocommerce, woocommerce notification, ecommerce, commerce, notification, in stock, Out of stock, product, discount notification, discount, notification woocommerce, email notification, email, product availablity, product discount
 Requires at least: 3.3
 Tested up to: 4.5.3
 Stable tag: trunk
@@ -43,4 +43,12 @@ After Installing the plugin , go to 'WC Notification Settings' in wp-admin to se
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 0.1 =
+
+Plugin released
+
+= 0.2 = 
+
+Plun info added
 
