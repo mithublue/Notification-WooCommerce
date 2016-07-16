@@ -74,6 +74,9 @@ class WCN_Notification {
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
+
+        //setup
+        do_action( 'wcn_initial_setup' );
     }
 
     /**

@@ -16,6 +16,10 @@ class WCN_Loader_Basic {
             require_once dirname(__FILE__).'/admin/templates.php';
         });
 
+        /**
+         * action src : woocommerce-notification.php
+         */
+        add_action( 'wcn_initial_setup' , array( $this, 'wcn_initial_setup_runner' ) );
         $this->includes();
     }
 
@@ -45,6 +49,40 @@ class WCN_Loader_Basic {
             )
         );
         return $postdata;
+    }
+
+    /**
+     * Run the initial setup
+     */
+    function wcn_initial_setup_runner() {
+        $options = get_option( 'wcn_settings' );
+
+        if( !is_array( $options ) ) {
+            $options = array(
+                'availablity_notification' => 'true',
+                'availablity' => array(
+                    'notification_by' => array(
+                        'mail' => array(
+                            'enabled' => 'true',
+                            'body' => 'Congratulations ! The product you were waiting for is now on store.
+                Check your item and grab it from here  %product_link%'
+                        )
+                    )
+                ),
+                'discount_notification' => 'true',
+                'discount' => array(
+                    'notification_by' => array(
+                        'mail' => array(
+                            'enabled' => 'true',
+                            'body' => 'Congratulations ! The product you were waiting for is now in discount.
+                Check your item and grab it from here %product_link%',
+                        )
+                    )
+                )
+            );
+        }
+        update_option( 'wcn_settings', $options );
+
     }
 }
 

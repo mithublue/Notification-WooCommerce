@@ -1,6 +1,20 @@
 <?php
 
+if( !function_exists('pri') ) {
+    function pri($data){
+        echo '<pre>';print_r($data);echo '</pre>';
+    }
+}
+
 class wcn_functions{
+
+    public static function is_pro() {
+        if ( is_dir( dirname(__FILE__).'/inc/pro' ) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Get notification data of product
@@ -116,6 +130,15 @@ ORDER BY $notification_table.ID;" );
      */
     public static function send_notification_to_customers( $opt = array() ){
 
+        $wcn_settings = get_option( 'wcn_settings');
+
+        $msg_search = array(
+            '%product_link%'
+        );
+        $msg_replace = array(
+            'this is product link'
+        );
+
         $default = array(
             'notification_for' => '', // for availablity/discount
             'notification_type' => '', // type of notification. Email/sms etc
@@ -143,13 +166,12 @@ ORDER BY $notification_table.ID;" );
                 switch ( $notification_for ) {
                     case 'availablity':
                         $subject = 'The product '.$product_title.' is now on store !';
-                        $message = 'Congratulations ! The product you were waiting for is now on store.
-                Check your item and grab it !'.$product_link;
+                        $message = str_replace( $msg_search, $msg_replace, $wcn_settings['availablity']['notification_by']['mail']['body'] );
+
                         break;
                     case 'discount' :
                         $subject = 'The product '.$product_title.' is now in discount !';
-                        $message = 'Congratulations ! The product you were waiting for is now in discount.
-                Check your item and grab it !'.$product_link;
+                        $message = str_replace( $msg_search, $msg_replace, $wcn_settings['discount']['notification_by']['mail']['body'] );
                         break;
                 }
 
